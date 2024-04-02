@@ -1,0 +1,16 @@
+services:
+  rust:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - CARGO_TARGET_DIR=/build/target
+    volumes:
+      - ${PROJECT_ROOT}:/projects
+      - ./:/work
+      - build:/build
+    working_dir: /work
+    tty: true
+
+volumes:
+  build:
