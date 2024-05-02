@@ -2,8 +2,10 @@ use assert_cmd::Command;
 use predicates::prelude::*;
 use rand::{distributions::Alphanumeric, Rng};
 use std::fs;
+use anyhow::Result;
 
-type TestResult = Result<(), Box<dyn std::error::Error>>;
+type TestResult = Result<()>;
+// type TestResult = Result<(), Box<dyn std::error::Error>>;
 
 const PRG: &str = "wcr";
 const EMPTY: &str = "tests/inputs/empty.txt";
@@ -33,7 +35,7 @@ fn dies_chars_and_bytes() -> TestResult {
         .assert()
         .failure()
         .stderr(predicate::str::contains(
-            "The argument '--bytes' cannot be used with '--chars'",
+            "the argument '--chars' cannot be used with '--bytes'",
         ));
     Ok(())
 }

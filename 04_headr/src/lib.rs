@@ -8,15 +8,15 @@ type MyResult<T> = Result<T, Box<dyn Error>>;
 #[derive(Debug, Parser)]
 #[command(author, version, about)]
 pub struct Config {
-    // Input file(s)
+    /// Input file(s)
     #[arg(default_value("-"), value_name("FILE"))]
     files: Vec<String>,
 
-    // Number of lines
+    /// Number of lines
     #[arg(short('n'), long, default_value("10"), value_parser(1..))]
     lines: i64,
 
-    // Number of bytes
+    /// Number of bytes
     #[arg(short('c'), long, conflicts_with("lines"), value_parser(clap::value_parser!(u64).range(1..)))]
     bytes: Option<u64>,
 }

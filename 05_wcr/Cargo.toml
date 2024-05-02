@@ -2,11 +2,13 @@
 name = "wcr"
 version = "0.1.0"
 edition = "2021"
-
-[dependencies]
-clap = "2.33"
+authors = ["hogee(hogee)"]
 
 [dev-dependencies]
 assert_cmd = "2"
 predicates = "2"
 rand = "0.8"
+
+[dependencies]
+anyhow = "1.0.82"
+clap = { version = "4.5.4", features = ["derive"] }
